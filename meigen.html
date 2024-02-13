@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>くじ引きサイト</title>
+    <link rel="stylesheet" href="topstyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Yuji Syuku' rel='stylesheet'>
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="video-header">
+            <video autoplay loop muted>
+                <source src="uououo4.mp4" type="video/mp4">
+            </video>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>ぱっちぃの名言くじだっちぃ</h1>
+        <input type="checkbox" id="popup">
+        <button class="button" type="button" onclick="restartAnimation()">
+            名言を紡ぐ
+            <label class="popup-open" for="popup"></label>
+        </button>
+        <div class="popup-overlay">
+            <div class="animation-wrapper">
+                <div class="quote-container">
+
+                    <div class="background-container">
+                        <div id="sunrise-container"></div>
+                        <div id="mountain-wrap">
+                            <img class="mountain-image" src="images/pacchi/bg_inaka_tanbo.png">
+                        </div>
+                    </div>
+
+                    <div class="quote-box vertical-text">
+                        <p>名言のテキストをここに入力してください。</p>
+                    </div>
+
+                    <figure class="my-stamp">
+                        <img src="images/pacchi/hanko.png" class="stamp2">
+                    </figure>
+
+                    <div class="button-area">
+                        <button class="restart-button" onclick="restartAnimation()">もう一回！</button>
+                        <ul class="sns-button">
+                            <li class="twitter"><a id='twitter-share' href="" rel="nofollow noopener"
+                                    target="_blank"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="animation-container">
+                    <img src="images/pacchi/1.png" alt="Image 1" class="image image1">
+                </div>
+                <div class="animation-container">
+                    <img src="images/pacchi/2.png" alt="Image 2" class="image image2">
+                </div>
+                <div class="animation-container">
+                    <img src="images/pacchi/3.png" alt="Image 3" class="image image3">
+                </div>
+                <label class="popup-close" for="popup">
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="0" y1="0" x2="18" y2="18" stroke="white" stroke-width="3"></line>
+                        <line x1="0" y1="18" x2="18" y2="0" stroke="white" stroke-width="3"></line>
+                    </svg>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="scrollpacchi">
+        <img class="mawarikomi" src="pacchi5.jpg">
+    </div>
+    <div id="fadeText">
+        <h2 class="in">ぱっちぃをもっと知る</h2>
+        <div class="button-container">
+            <a href="https://www.neec.ac.jp/character/"><button class="button" type="button">公式ページへ</button></a>
+            <a href="https://www.yurugp.jp/jp/vote/detail.php?id=00002126"><button class="button"
+                    type="button">ゆるキャラグランプリのページを見る</button></a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>2023 日本工学院八王子専門学校　ネットワークセキュリティ科</p>
+        <img class="footerimg" src="footkougakuin.png">
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var scrollpacchi = document.getElementById('scrollpacchi');
+            var fadeText = document.getElementById('fadeText');
+
+            window.addEventListener('scroll', function () {
+                var scrollPosition = window.scrollY;
+                var triggerPosition = 60;
+
+                if (scrollPosition > triggerPosition && !scrollpacchi.classList.contains('show')) {
+                    scrollpacchi.classList.add('show');
+                    fadeText.classList.add('fade-in'); // 追加: スクロール時にフェードインのクラスを追加
+                } else if (scrollPosition <= triggerPosition && scrollpacchi.classList.contains('show')) {
+                    scrollpacchi.classList.remove('show');
+                    fadeText.classList.remove('fade-in'); // 追加: スクロール時にフェードインのクラスを削除
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

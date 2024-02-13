@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 100px;
+    overflow: hidden;
+}
+
+h1 {
+    color: #333;
+}
+
+.button {
+    position: relative;
+    padding: 20px 40px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #ff3655;
+    /* 通常の状態のボタンの背景色 */
+    border: none;
+    border-radius: 5px;
+    margin: 50px;
+    overflow: hidden;
+    z-index: 1;
+    /* テキストがホバーエフェクトの上に表示されるようにする */
+    transition: background-color 0.3s ease;
+    /* 背景色変更のアニメーションを追加 */
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, black 0%, red 100%);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+    /* ホバーエフェクトの下に配置する */
+}
+
+.button:hover::before {
+    transform: translateX(0);
+}
+
+.button:active::before {
+    transform: translateX(100%);
+}
+
+
+
+#video-header {
+    width: 100%;
+    height: 250px;
+    width: 100%;
+    /* 固定の高さを設定 */
+    overflow: hidden;
+}
+
+#video-header video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 追加: ヘッダーの高さが固定された場合、中央揃えにするスタイル */
+header {
+    height: 250px;
+    width: 100%;
+    /* 固定の高さに合わせる */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    background-color: rgb(72, 68, 68);
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    clear: both;
+    /* 画像の下に回り込みを解除 */
+}
+
+.footerimg {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: 70%;
+    margin-top: 50px;
+}
+
+.mawarikomi {
+    float: left;
+    margin-right: 30px;
+    clear: both;
+}
+
+
+#scrollpacchi {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+#scrollpacchi.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#fadeText {
+    opacity: 0;
+}
+
+@keyframes fadeInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+        /* 非表示時に右から移動 */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        /* フェードインして左から元の位置に移動 */
+    }
+}
+
+.fade-in {
+    color: #333;
+    /* テキストの色を設定 */
+    opacity: 0;
+    /* 初期状態でテキストを透明にする */
+    animation: fadeInFromRight 0.8s ease-in-out forwards;
+    /* フェードインのアニメーションを追加 */
+}
+
+
+
+#popup {
+    display: none;
+    /* label でコントロールするので input は非表示に */
+}
+
+.popup-open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
+}
+
+.popup-overlay {
+    display: none;
+    /* input にチェックが入るまでは非表示に */
+}
+
+#popup:checked~.popup-overlay {
+    display: block;
+    z-index: 99999;
+    background-color: #00000070;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.popup-window {
+    width: 90vw;
+    max-width: 560px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-text {
+    margin: 0;
+}
+
+.popup-text:not(:last-of-type) {
+    margin-bottom: 1em
+}
+
+.popup-close {
+    cursor: pointer;
+    position: absolute;
+    top: -26px;
+    right: 0;
+}

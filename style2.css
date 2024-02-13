@@ -1,0 +1,117 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.loading-container {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  /* キャラクターとプログレスバーを含む総高さ */
+}
+
+.loading-character {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  animation: rotate 2s linear infinite;
+}
+
+.loading-character img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.progress-container{
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100px;
+  height: 10px;
+  border: 1px solid black;
+}
+
+.progress-bar {
+  position: absolute;
+  height: 100%;
+  -webkit-appearance: none;
+  /* プログレスバーのスタイルをリセット */
+  -moz-appearance: none;
+  /* プログレスバーのスタイルをリセット */
+  animation: moveBar 3s ease infinite;
+}
+::-webkit-progress-bar {
+  background-color: #ff3655;
+}
+
+.frame {
+  position: absolute;
+  bottom: -51px;
+  /* プログレスバーと枠を重ねないように調整 */
+  left: 0;
+  width: 100%;
+  height: 12px;
+  /* 枠の高さを変更 */
+  border: 1px solid #000;
+  /* 枠のスタイルを追加 */
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes moveBar {
+  0% {
+    width: 0;
+  }
+
+  20% {
+    width: 20%;
+  }
+
+  30% {
+    width: 30%;
+  }
+
+  40% {
+    width: 40%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  60% {
+    width: 60%;
+  }
+
+  70% {
+    width: 70%;
+  }
+
+  80% {
+    width: 80%;
+  }
+
+  90% {
+    width: 90%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

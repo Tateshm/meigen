@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+        /* アニメーションのキーフレームを定義 */
+        @keyframes slideUp {
+            0% {
+                transform: translateY(200%);
+                /* 下方向に100%移動（初期位置） */
+            }
+
+            100% {
+                transform: translateY(0%);
+                /* 下方向に0%移動（最終位置） */
+            }
+        }
+
+        /* アニメーションを要素に適用 */
+        #mountain-wrap {
+            opacity: 0;
+            height: 70vh;
+        }
+
+        #mountain-wrap.slide-up{
+            opacity: 1;
+            /* アニメーションのプロパティを指定 */
+            animation: slideUp 5s forwards;
+        }
+
+        .background-container{
+            position: absolute;
+            z-index: -1;
+            height: 100vh;
+            overflow-y: hidden;
+        }
+
+        @keyframes sunriseAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(300%);
+                background: #ffcc00;
+                /* 太陽の色 */
+                box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+                /* 太陽の影 */
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(100%);
+                background: #ffcc00;
+                /* 太陽の色 */
+                box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+                /* 太陽の影 */
+            }
+        }
+
+        #sunrise-container {
+            opacity: 0;
+            width: 200px;
+            /* 太陽の直径 */
+            height: 200px;
+            /* 太陽の直径 */
+            border-radius: 50%;
+            /* 太陽を円形にする */
+            /* 太陽の初期色 */
+            
+            margin-left: 85px;
+
+        }
+
+        #sunrise-container.sunrise{
+            animation: sunriseAnimation 5s ease-out forwards;
+            animation-delay: 2s;
+            /* アニメーションのプロパティを指定 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-container">
+        <div class="sunrise-container"></div>
+        <div class="mountain-wrap">
+            <img class="mountain-image" src="images/pacchi/bg_inaka_tanbo.png">
+        </div>
+    </div>
+</body>
+
+
+<script>
+
+</script>
+
+</html>
